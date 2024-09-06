@@ -1,4 +1,3 @@
-import "./signUp.css";
 
 import WelcomeSection from "./WelcomeSection";
 import SignUpForm from "./SignUpForm";
