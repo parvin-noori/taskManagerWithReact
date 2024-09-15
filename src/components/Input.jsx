@@ -8,6 +8,7 @@ export default function Input({ label, id, placeholder, type }) {
       </label>
       <input
         type={type}
+        name={label}
         autoComplete="new-password"
         placeholder={placeholder}
         id={id}

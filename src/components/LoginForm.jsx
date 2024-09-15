@@ -27,7 +27,7 @@ export default function LoginForm() {
           <Checkbox id="remember-password" label="remember password" />
           <Link className="text-sm">i cant remember password</Link>
         </div>
-        <Button label="login" />
+        <Button label="login" className="w-full " />
       </div>
     </form>
   );

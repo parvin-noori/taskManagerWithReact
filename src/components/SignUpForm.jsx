@@ -28,7 +28,7 @@ export default function SignUpForm() {
           type="password"
         />
         <Checkbox id="remember-password" label="remember password" />
-        <Button label=" sign up" />
+        <Button label="sign up" className="w-full " />
       </div>
     </form>
   );

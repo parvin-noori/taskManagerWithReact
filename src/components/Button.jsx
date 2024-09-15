@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function Button(props) {
-  const { label } = props;
+  const { label,className } = props;
   return (
     <button
       type="submit"
-      className="capitalize bg-primary text-white p-2 rounded-xl w-full"
+      className={`capitalize  p-2 rounded-xl bg-primary text-white ${className}`}
     >
      {label}
     </button>

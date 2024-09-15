@@ -1,16 +1,28 @@
 import SignUp from "./pages/SignUp";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErorrPage from "./errorPage";
+import ErorrPage from "./pages/errorPage";
 import "./index.css";
 import { StrictMode } from "react";
 import Login from "./pages/Login";
 import App from "./pages/App";
+import Create from "./pages/Create";
+import List from "./pages/List";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErorrPage />,
+  },
+  {
+    path: "/create",
+    element: <Create />,
+    errorElement: <ErorrPage />,
+  },
+  {
+    path: "/list",
+    element: <List />,
     errorElement: <ErorrPage />,
   },
   {
