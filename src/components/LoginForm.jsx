@@ -4,8 +4,18 @@ import Checkbox from "./Checkbox";
 import Input from "./Input";
 
 export default function LoginForm() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    console.log(formData);
+    e.target.reset();
+  }
   return (
-    <form id="signUp" className="p-7 text-primary flex flex-col h-full">
+    <form
+      id="signUp"
+      onSubmit={handleSubmit}
+      className="p-7 text-primary flex flex-col h-full"
+    >
       <span className="title capitalize text-2xl font-semibold mb-5 block">
         login
       </span>
@@ -24,7 +34,7 @@ export default function LoginForm() {
           type="password"
         />
         <div className="flex sm:flex-row flex-col sm:items-center sm:justify-between space-y-2">
-          <Checkbox id="remember-password" label="remember password" />
+          <Checkbox id="rememberPassword" label="remember password" />
           <Link className="text-sm">i cant remember password</Link>
         </div>
         <Button label="login" className="w-full !mt-auto sm:!mt-4" />

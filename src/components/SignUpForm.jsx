@@ -3,8 +3,14 @@ import Checkbox from "./Checkbox";
 import Input from "./Input";
 
 export default function SignUpForm() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    console.log(formData);
+    e.target.reset();
+  }
   return (
-    <form id="signUp" className="p-7 text-primary flex flex-col h-full">
+    <form id="signUp" onSubmit={handleSubmit} className="p-7 text-primary flex flex-col h-full">
       <span className="title capitalize text-2xl font-semibold mb-5 block">
         sign up
       </span>
