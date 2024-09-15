@@ -5,11 +5,11 @@ import Input from "./Input";
 
 export default function LoginForm() {
   return (
-    <form id="signUp" className="p-7 text-primary">
+    <form id="signUp" className="p-7 text-primary flex flex-col h-full">
       <span className="title capitalize text-2xl font-semibold mb-5 block">
         login
       </span>
-      <div className="space-y-4">
+      <div className="space-y-4 flex flex-col h-full">
         <Input
           label="username"
           id="signup-username"
@@ -23,11 +23,11 @@ export default function LoginForm() {
           placeholder=""
           type="password"
         />
-        <div className="flex items-center justify-between">
+        <div className="flex sm:flex-row flex-col sm:items-center sm:justify-between space-y-2">
           <Checkbox id="remember-password" label="remember password" />
           <Link className="text-sm">i cant remember password</Link>
         </div>
-        <Button label="login" className="w-full " />
+        <Button label="login" className="w-full !mt-auto sm:!mt-4" />
       </div>
     </form>
   );

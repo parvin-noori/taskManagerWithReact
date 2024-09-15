@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function SubTitle(props) {
   const { anchor } = props;
   return (
-    <span className="text-gray-400 font-light">
+    <span className="text-gray-400 font-light text-center">
       already have an account?{" "}
       <Link
         to={`/${anchor.replace(/\s+/g, "").toLowerCase()}`}
