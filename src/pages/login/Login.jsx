@@ -1,4 +1,4 @@
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "./LoginForm";
 import SubTitle from "../../components/SubTitle";
 import Container from "../../layout/Container";
 

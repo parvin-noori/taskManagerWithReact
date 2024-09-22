@@ -1,4 +1,4 @@
-import SignUpForm from "../../components/SignUpForm";
+import SignUpForm from "./SignUpForm";
 import SubTitle from "../../components/SubTitle";
 import Container from "../../layout/Container";
 

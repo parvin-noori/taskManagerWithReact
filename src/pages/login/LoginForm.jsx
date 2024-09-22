@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Button from "./Button";
-import Checkbox from "./Checkbox";
-import Input from "./Input";
+import Button from "../../components/Button";
+import Checkbox from "../../components/Checkbox";
+import Input from "../../components/Input";
 
 export default function LoginForm() {
   const [loginUsername, setLoginUsername] = useState("");

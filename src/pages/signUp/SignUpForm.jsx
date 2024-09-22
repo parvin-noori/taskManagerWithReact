@@ -1,12 +1,13 @@
 import { useState } from "react";
-import Button from "./Button";
-import Checkbox from "./Checkbox";
-import Input from "./Input";
+import Button from "../../components/Button";
+import Checkbox from "../../components/Checkbox";
+import Input from "../../components/Input";
 
 export default function SignUpForm() {
   const [signUpUsername, setSignUpUsername] = useState("");
   const [email, setEmail] = useState("");
   const [signUpPassword, setsignUpPassword] = useState("");
+  
   function handleSubmit(e) {
     e.preventDefault();
     console.log("username", signUpUsername);
