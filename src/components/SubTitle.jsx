@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function SubTitle(props) {
-  const { anchor } = props;
+  const { page } = props;
   return (
     <span className="text-gray-400 font-light text-center">
       already have an account?{" "}
       <Link
-        to={`/${anchor.replace(/\s+/g, "").toLowerCase()}`}
+        to={`/${page.replace(/\s+/g, "").toLowerCase()}`}
         className="capitalize underline"
       >
-        {anchor}
+        {page}
       </Link>
     </span>
   );

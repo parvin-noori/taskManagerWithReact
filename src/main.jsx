@@ -1,10 +1,10 @@
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/signup/SignUp";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErorrPage from "./pages/errorPage";
 import "./index.css";
 import { StrictMode } from "react";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import App from "./pages/App";
 import Create from "./pages/Create";
 import List from "./pages/List";
