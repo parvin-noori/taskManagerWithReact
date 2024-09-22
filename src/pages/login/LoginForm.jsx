@@ -5,12 +5,12 @@ import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
 
 export default function LoginForm() {
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("username", loginUsername);
-    console.log("password", loginPassword);
+    console.log("username", username);
+    console.log("password", password);
     e.target.reset();
   }
   return (
@@ -28,7 +28,7 @@ export default function LoginForm() {
           id="signup-username"
           placeholder="enter your username"
           type="text"
-          onChange={(e) => setLoginUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
 
         <Input
@@ -36,7 +36,7 @@ export default function LoginForm() {
           id="signup-password"
           placeholder=""
           type="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="flex sm:flex-row flex-col sm:items-center sm:justify-between space-y-2">
           <Checkbox id="rememberPassword" label="remember password" />

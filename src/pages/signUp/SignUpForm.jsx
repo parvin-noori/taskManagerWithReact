@@ -4,15 +4,15 @@ import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
 
 export default function SignUpForm() {
-  const [signUpUsername, setSignUpUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [signUpPassword, setsignUpPassword] = useState("");
-  
+  const [password, setPassword] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("username", signUpUsername);
+    console.log("username", username);
     console.log("email", email);
-    console.log("password", signUpPassword);
+    console.log("password", password);
     e.target.reset();
   }
   return (
@@ -30,7 +30,7 @@ export default function SignUpForm() {
           id="signup-username"
           placeholder="enter your username"
           type="text"
-          onChange={(e) => setSignUpUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <Input
           label="email"
@@ -44,7 +44,7 @@ export default function SignUpForm() {
           id="signup-password"
           placeholder=""
           type="password"
-          onChange={(e) => setsignUpPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Checkbox id="remember-password" label="remember password" />
         <Button label="sign up" className="w-full !mt-auto sm:!mt-4" />
