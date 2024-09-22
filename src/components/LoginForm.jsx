@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 import Input from "./Input";
 
 export default function LoginForm() {
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    console.log(formData);
+    console.log("username", loginUsername);
+    console.log("password", loginPassword);
     e.target.reset();
   }
   return (
@@ -25,6 +28,7 @@ export default function LoginForm() {
           id="signup-username"
           placeholder="enter your username"
           type="text"
+          onChange={(e) => setLoginUsername(e.target.value)}
         />
 
         <Input
@@ -32,6 +36,7 @@ export default function LoginForm() {
           id="signup-password"
           placeholder=""
           type="password"
+          onChange={(e) => setLoginPassword(e.target.value)}
         />
         <div className="flex sm:flex-row flex-col sm:items-center sm:justify-between space-y-2">
           <Checkbox id="rememberPassword" label="remember password" />
