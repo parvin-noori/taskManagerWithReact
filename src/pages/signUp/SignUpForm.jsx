@@ -4,17 +4,21 @@ import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
 
 export default function SignUpForm() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userInfo, setUserInfo] = useState({});
 
-  function handleSubmit(e) {
+  const handleChange = (e) => {
+    const id = e.target.id;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    setUserInfo((prevState) => ({ ...prevState, [id]: value }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("username", username);
-    console.log("email", email);
-    console.log("password", password);
-    e.target.reset();
-  }
+    console.log(userInfo);
+    // e.target.reset();
+  };
   return (
     <form
       id="signUp"
@@ -27,26 +31,30 @@ export default function SignUpForm() {
       <div className="space-y-4 flex flex-col h-full">
         <Input
           label="username"
-          id="signup-username"
+          id="username"
           placeholder="enter your username"
           type="text"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleChange}
         />
         <Input
           label="email"
-          id="signup-email"
+          id="email"
           placeholder="m@example.com"
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
         />
         <Input
           label="password"
-          id="signup-password"
+          id="password"
           placeholder=""
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
         />
-        <Checkbox id="remember-password" label="remember password" />
+        <Checkbox
+          onChange={handleChange}
+          id="remember-password"
+          label="remember password"
+        />
         <Button label="sign up" className="w-full !mt-auto sm:!mt-4" />
       </div>
     </form>

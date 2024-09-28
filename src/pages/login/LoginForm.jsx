@@ -5,12 +5,18 @@ import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
 
 export default function LoginForm() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [userInfo, setUserInfo] = useState({});
+
+  const handleChange = (e) => {
+    const id = e.target.id;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    setUserInfo((prevState) => ({ ...prevState, [id]: value }));
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("username", username);
-    console.log("password", password);
+    console.log(userInfo);
     e.target.reset();
   }
   return (
@@ -25,21 +31,25 @@ export default function LoginForm() {
       <div className="space-y-4 flex flex-col h-full">
         <Input
           label="username"
-          id="signup-username"
+          id="username"
           placeholder="enter your username"
           type="text"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleChange}
         />
 
         <Input
           label="password"
-          id="signup-password"
+          id="password"
           placeholder=""
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
         />
         <div className="flex sm:flex-row flex-col sm:items-center sm:justify-between space-y-2">
-          <Checkbox id="rememberPassword" label="remember password" />
+          <Checkbox
+            onChange={handleChange}
+            id="rememberPassword"
+            label="remember password"
+          />
           <Link className="text-sm">i cant remember password</Link>
         </div>
         <Button label="login" className="w-full !mt-auto sm:!mt-4" />
