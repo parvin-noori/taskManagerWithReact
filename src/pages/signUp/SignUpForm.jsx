@@ -14,10 +14,20 @@ export default function SignUpForm() {
     setUserInfo((prevState) => ({ ...prevState, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userInfo);
-    // e.target.reset();
+    const response = await fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: {
+        Accept: "Application/json",
+        "content-type": "Application/json",
+      },
+      body: JSON.stringify(userInfo),
+    });
+
+    const responseJson = await response.json();
+    localStorage.setItem('token',responseJson.accessToken)
+    e.target.reset();
   };
   return (
     <form

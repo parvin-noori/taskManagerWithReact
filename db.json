@@ -1,3 +1,16 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "parvinnoori.dev@gamil.com",
+      "password": "$2a$10$A0bb0DKf9jcVTa5DKSQ4JubnQo4Sz3Y3kAbAd4sLgbD8NOikSqJC2",
+      "username": "parvin",
+      "id": 1
+    },
+    {
+      "email": "parvinnoori0@gamil.com",
+      "password": "$2a$10$XlwE7sF6/SfINFqyLkFfLubD33aqFZY2lii6oKZ42zPeHhGXa/3/a",
+      "username": "parvinNoori",
+      "id": 2
+    }
+  ]
 }
