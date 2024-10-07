@@ -14,11 +14,21 @@ export default function LoginForm() {
     setUserInfo((prevState) => ({ ...prevState, [id]: value }));
   };
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userInfo);
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        Accept: "Application/json",
+        "Content-type": "Application/json",
+      },
+      body: JSON.stringify(userInfo),
+    });
+
+    const responseJson = await response.json();
+    localStorage.setItem("token", responseJson.accessToken);
     e.target.reset();
-  }
+  };
   return (
     <form
       id="signUp"
@@ -30,10 +40,10 @@ export default function LoginForm() {
       </span>
       <div className="space-y-4 flex flex-col h-full">
         <Input
-          label="username"
-          id="username"
-          placeholder="enter your username"
-          type="text"
+          label="email"
+          id="email"
+          placeholder="m@example.com"
+          type="email"
           onChange={handleChange}
         />
 
