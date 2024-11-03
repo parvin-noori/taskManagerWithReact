@@ -1,6 +1,10 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import SignUp from "./pages/signup/SignUp";
 import ErorrPage from "./pages/errorPage";
 import Login from "./pages/login/Login";
@@ -9,20 +13,28 @@ import Create from "./pages/Create";
 import List from "./pages/List";
 import "./index.css";
 
+const isAuthenticated = () => {
+  return localStorage.getItem("token") !== null;
+};
+
+function ProtectedRoute({ element }) {
+  return isAuthenticated() ? element : <Navigate to="/login" />;
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <ProtectedRoute element={<App />} />,
     errorElement: <ErorrPage />,
   },
   {
     path: "/create",
-    element: <Create />,
+    element: <ProtectedRoute element={<Create />} />,
     errorElement: <ErorrPage />,
   },
   {
     path: "/list",
-    element: <List />,
+    element: <ProtectedRoute element={<List />} />,
     errorElement: <ErorrPage />,
   },
   {

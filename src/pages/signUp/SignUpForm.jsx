@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
-import { supabase } from "../../helper/config";
+// import { supabase } from "../../helper/config";
 
 export default function SignUpForm() {
   const [userInfo, setUserInfo] = useState({});
@@ -25,10 +25,10 @@ export default function SignUpForm() {
       },
       body: JSON.stringify(userInfo),
     });
-
     const responseJson = await response.json();
     localStorage.setItem("token", responseJson.accessToken);
     e.target.reset();
+
 
     // use supabse api
     // const { data, error } = await supabase.auth.signUp({

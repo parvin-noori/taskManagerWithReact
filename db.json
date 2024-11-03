@@ -1,16 +1,38 @@
 {
   "users": [
     {
-      "email": "parvinnoori.dev@gamil.com",
-      "password": "$2a$10$A0bb0DKf9jcVTa5DKSQ4JubnQo4Sz3Y3kAbAd4sLgbD8NOikSqJC2",
+      "email": "parvinnoori0@gmail.com",
+      "password": "$2a$10$/fzWcCXHBn9qiiosBay/KucBOWn9Xg4BG/nXgX8mHc/eZKFlkPZze",
       "username": "parvin",
+      "remember-password": true,
       "id": 1
     },
     {
-      "email": "parvinnoori0@gamil.com",
-      "password": "$2a$10$XlwE7sF6/SfINFqyLkFfLubD33aqFZY2lii6oKZ42zPeHhGXa/3/a",
-      "username": "parvinNoori",
+      "email": "parvinnoori@gmail.com",
+      "password": "$2a$10$l/jBAJw98yb6iKMpAUzqpuqzUm.K5ExVDaizvrSL9PoVoPqUioQeC",
+      "username": "parvin",
+      "remember-password": true,
       "id": 2
+    },
+    {
+      "email": "parvinnooriiiiii@gmail.com",
+      "password": "$2a$10$26S4ijlPPSgvShBo/4YYg.unMiytRpPaJ2jJj8hn3Fnzno0yYmi0a",
+      "username": "parvin",
+      "remember-password": true,
+      "id": 3
+    },
+    {
+      "email": "parvinnooriiiiidafsdfasdf@gmail.com",
+      "password": "$2a$10$IAHkbBJvhAmHSiJTnzrML.2L/2KB0A2hBXXGVxWPUfze6ozaYFq02",
+      "username": "parvin",
+      "remember-password": true,
+      "id": 4
+    },
+    {
+      "email": "parvinnoori.dev@gamil.com",
+      "password": "$2a$10$c5QvxluOExEOI8OujC10JuMhbgkl87HH3qtS/cEPWORNbaHKgPaLe",
+      "username": "parvinnoori",
+      "id": 5
     }
   ]
 }
