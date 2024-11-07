@@ -6,6 +6,39 @@ import Input from "../../components/Input";
 
 export default function SignUpForm() {
   const [userInfo, setUserInfo] = useState({});
+  const [errors, setErrors] = useState({});
+
+  const formValidate = () => {
+    const newErrors = {};
+    if (!userInfo.username) {
+      newErrors.username = "username is required";
+    } else {
+      if (userInfo.username.lenght < 5) {
+        newErrors.username = "username must be at least 5 char";
+      }
+    }
+
+    if (!userInfo.email) {
+      newErrors.email = "email is required";
+    } else {
+      const emailRegex = /\S+@\S+\.\S+/;
+      if (!emailRegex.test(userInfo.email)) {
+        newErrors.email = "please enter a valid email address";
+      }
+    }
+
+    if (!userInfo.password) {
+      newErrors.password = "password is required";
+    } else {
+      if (userInfo.password.length < 6) {
+        newErrors.password = "password must be at least 6 char";
+      }
+    }
+
+    setErrors(newErrors);
+    console.log(Object.keys(newErrors) === 0);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e) => {
     const id = e.target.id;
@@ -17,18 +50,19 @@ export default function SignUpForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: {
-        Accept: "Application/json",
-        "content-type": "Application/json",
-      },
-      body: JSON.stringify(userInfo),
-    });
-    const responseJson = await response.json();
-    localStorage.setItem("token", responseJson.accessToken);
-    e.target.reset();
-
+    if (formValidate()) {
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {
+          Accept: "Application/json",
+          "content-type": "Application/json",
+        },
+        body: JSON.stringify(userInfo),
+      });
+      const responseJson = await response.json();
+      localStorage.setItem("token", responseJson.accessToken);
+      e.target.reset();
+    }
 
     // use supabse api
     // const { data, error } = await supabase.auth.signUp({
@@ -53,6 +87,7 @@ export default function SignUpForm() {
           placeholder="enter your username"
           type="text"
           onChange={handleChange}
+          error={errors.username}
         />
         <Input
           label="email"
@@ -60,6 +95,7 @@ export default function SignUpForm() {
           placeholder="m@example.com"
           type="email"
           onChange={handleChange}
+          error={errors.email}
         />
         <Input
           label="password"
@@ -67,6 +103,7 @@ export default function SignUpForm() {
           placeholder=""
           type="password"
           onChange={handleChange}
+          error={errors.password}
         />
         <Checkbox
           onChange={handleChange}

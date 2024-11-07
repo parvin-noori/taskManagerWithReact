@@ -33,6 +33,20 @@
       "password": "$2a$10$c5QvxluOExEOI8OujC10JuMhbgkl87HH3qtS/cEPWORNbaHKgPaLe",
       "username": "parvinnoori",
       "id": 5
+    },
+    {
+      "email": "asdfadaa@gamil.com",
+      "password": "$2a$10$H7H/coccSKeufBYbgKh.r.aZEDW1ogmO/rguB1H59QmJbdzdWxuca",
+      "username": "11121212",
+      "remember-password": true,
+      "id": 6
+    },
+    {
+      "email": "parvin@gmail.com",
+      "password": "$2a$10$zuCydI8GwqtalmNPmijLa.opjDnz71RGoQxNeraLJUonNDbXaFl5W",
+      "username": "parvin",
+      "remember-password": true,
+      "id": 7
     }
   ]
 }
