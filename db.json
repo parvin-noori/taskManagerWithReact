@@ -47,6 +47,13 @@
       "username": "parvin",
       "remember-password": true,
       "id": 7
+    },
+    {
+      "email": "parvinnoori.devv@gamil.com",
+      "password": "$2a$10$6MxLqFWYlfMtKaVZ0JM65u8sdZu0fRzl05Fh7XqjdH0jiy9XsW74G",
+      "username": "pariiinoo",
+      "rememberPassword": false,
+      "id": 8
     }
   ]
 }
