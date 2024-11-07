@@ -7,7 +7,6 @@ import * as Yup from "yup";
 
 export default function LoginForm() {
   const handleSubmit = async (values) => {
-    console.log(values);
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {

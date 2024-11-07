@@ -44,7 +44,6 @@ export default function SignUpForm() {
   // };
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const response = await fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
