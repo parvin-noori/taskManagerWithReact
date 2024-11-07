@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function Button(props) {
-  const { label,className } = props;
+  const { label, className, type = "" } = props;
   return (
     <button
-      type="submit"
+      type={type}
       className={`capitalize  p-2 rounded-xl bg-primary text-white ${className}`}
     >
-     {label}
+      {label}
     </button>
   );
 }
