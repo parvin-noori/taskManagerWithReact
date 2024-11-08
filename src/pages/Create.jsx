@@ -5,13 +5,15 @@ import Input from "../components/Input";
 import Select from "../components/Select";
 import Button from "../components/Button";
 import DatePicker from "../components/DatePicker/DatePicker";
+import { Field, Form, Formik } from "formik";
+import * as Yup from "yup";
 
 export default function Create() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    console.log(formData);
-    e.target.reset();
+  function handleSubmit(values) {
+    // e.preventDefault();
+    // const formData = new FormData(e.target);
+    console.log(values);
+    // e.target.reset();
   }
   return (
     <div className="p-8 xl:w-3/5 space-y-3 w-4/5 rounded-xl overflow-hidden shadow-xl mb-3">
@@ -25,16 +27,36 @@ export default function Create() {
       <span className="capitalize block text-2xl font-semibold text-center">
         create new task
       </span>
-      <form className="space-y-7" onSubmit={handleSubmit} id="createTask">
-        <Input label="task name" type="text" placeholder="enter task name" />
-        <DatePicker/>
-        <Select id="priority" />
-        <Button
-          fullWidth={false}
-          label="save task"
-          className="float-end px-4"
-        />
-      </form>
+      <Formik
+        initialValues={{ taskName: "" }}
+        validationSchema={Yup.object({
+          taskName: Yup.string()
+            .required("required")
+            .min(4, "must be 4 charachter or more"),
+        })}
+        onSubmit={handleSubmit}
+      >
+        {({ errors, touched }) => (
+          <Form className="space-y-7" id="createTask">
+            <Field
+              as={Input}
+              name="taskName"
+              label="task Name"
+              id="taskName"
+              placeholder=""
+              error={errors.taskName && touched.taskName ? errors.taskName : ""}
+            />
+            <DatePicker />
+            <Select id="priority" />
+            <Button
+              type="submit"
+              fullWidth={false}
+              label="save task"
+              className="float-end px-4"
+            />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }

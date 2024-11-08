@@ -16,7 +16,6 @@ export default function Input({
       <input
         type={type}
         {...fieldprops}
-        name={label}
         autoComplete="new-password"
         placeholder={placeholder}
         id={id}
