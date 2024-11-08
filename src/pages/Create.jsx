@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline"; // For outlined ico
 import Input from "../components/Input";
 import Select from "../components/Select";
 import Button from "../components/Button";
+import DatePicker from "../components/DatePicker/DatePicker";
 
 export default function Create() {
   function handleSubmit(e) {
@@ -26,7 +27,7 @@ export default function Create() {
       </span>
       <form className="space-y-7" onSubmit={handleSubmit} id="createTask">
         <Input label="task name" type="text" placeholder="enter task name" />
-        <Input label="due date" type="date" placeholder="select due date" />
+        <DatePicker/>
         <Select id="priority" />
         <Button
           fullWidth={false}
