@@ -30,22 +30,18 @@ const router = createBrowserRouter([
   {
     path: "/create",
     element: <ProtectedRoute element={<Create />} />,
-    errorElement: <ErorrPage />,
   },
   {
     path: "/list",
     element: <ProtectedRoute element={<List />} />,
-    errorElement: <ErorrPage />,
   },
   {
     path: "/signup",
     element: <SignUp />,
-    errorElement: <ErorrPage />,
   },
   {
     path: "/login",
     element: <Login />,
-    errorElement: <ErorrPage />,
   },
 ]);
 

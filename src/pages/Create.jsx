@@ -28,7 +28,11 @@ export default function Create() {
         <Input label="task name" type="text" placeholder="enter task name" />
         <Input label="due date" type="date" placeholder="select due date" />
         <Select id="priority" />
-        <Button label="save task" className="float-end px-4" />
+        <Button
+          fullWidth={false}
+          label="save task"
+          className="float-end px-4"
+        />
       </form>
     </div>
   );
