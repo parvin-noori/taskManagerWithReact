@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Select(props) {
-  const { id } = props;
+  const { id, error, ...fieldprops } = props;
   return (
     <div className="space-y-2">
       <label className="capitalize">
@@ -9,6 +9,7 @@ export default function Select(props) {
         <select
           id={id}
           name={id}
+          {...fieldprops}
           className="w-full shadow-md rounded-xl border p-2 bg-white focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:opacity-50 outline-none"
           aria-label={id}
           defaultValue=""
@@ -21,6 +22,7 @@ export default function Select(props) {
           <option value="low">low</option>
         </select>
       </label>
+      {error && <p style={{ color: "red", margin: "5px 0" }}>{error}</p>}
     </div>
   );
 }

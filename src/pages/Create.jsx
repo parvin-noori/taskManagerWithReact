@@ -28,11 +28,13 @@ export default function Create() {
         create new task
       </span>
       <Formik
-        initialValues={{ taskName: "" }}
+        initialValues={{ taskName: "", datePicker: "", priority: "" }}
         validationSchema={Yup.object({
           taskName: Yup.string()
             .required("required")
             .min(4, "must be 4 charachter or more"),
+          datePicker: Yup.string().required("required"),
+          priority: Yup.string().required("required"),
         })}
         onSubmit={handleSubmit}
       >
@@ -46,8 +48,19 @@ export default function Create() {
               placeholder=""
               error={errors.taskName && touched.taskName ? errors.taskName : ""}
             />
-            <DatePicker />
-            <Select id="priority" />
+            <Field
+              as={DatePicker}
+              name="datePicker"
+              error={
+                errors.datePicker && touched.datePicker ? errors.datePicker : ""
+              }
+            />
+            <Field
+              as={Select}
+              id="priority"
+              name="priority"
+              error={errors.priority && touched.priority ? errors.priority : ""}
+            />
             <Button
               type="submit"
               fullWidth={false}

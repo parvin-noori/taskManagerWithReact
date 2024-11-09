@@ -4,12 +4,14 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/dates/styles.css";
 import "@mantine/core/styles.css";
 
-export default function DatePicker() {
+export default function DatePicker(props) {
+  const { error, ...fieldprops } = props;
   const [value, setValue] = useState(null);
   return (
     <MantineProvider>
       <DatePickerInput
         rightSectionPointerEvents="none"
+        {...fieldprops}
         rightSection={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +33,7 @@ export default function DatePicker() {
         value={value}
         onChange={setValue}
       />
+      {error && <p style={{ color: "red", margin: "5px 0" }}>{error}</p>}
     </MantineProvider>
   );
 }
