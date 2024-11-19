@@ -12,7 +12,6 @@ export default function Select(props) {
           {...fieldprops}
           className="w-full shadow-md rounded-xl border p-2 bg-white focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:opacity-50 outline-none"
           aria-label={id}
-          defaultValue=""
         >
           <option value="" disabled>
             select priaroty

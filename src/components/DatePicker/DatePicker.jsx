@@ -5,13 +5,14 @@ import "@mantine/dates/styles.css";
 import "@mantine/core/styles.css";
 
 export default function DatePicker(props) {
-  const { error, ...fieldprops } = props;
-  const [value, setValue] = useState(null);
+  const { error, value, onChange } = props;
+
+  // const [value, setValue] = useState(null);
   return (
     <MantineProvider>
       <DatePickerInput
+        {...props}
         rightSectionPointerEvents="none"
-        {...fieldprops}
         rightSection={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,10 +31,10 @@ export default function DatePicker(props) {
         }
         label="due date"
         placeholder="please select a due date"
-        value={value}
-        onChange={setValue}
+        value={value }
+        onChange={onChange}
       />
-      {error && <p style={{ color: "red", margin: "5px 0" }}>{error}</p>}
+      {/* {error && <p style={{ color: "red", margin: "5px 0" }}>{error}</p>} */}
     </MantineProvider>
   );
 }

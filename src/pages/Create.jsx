@@ -28,7 +28,7 @@ export default function Create() {
         create new task
       </span>
       <Formik
-        initialValues={{ taskName: "", datePicker: "", priority: "" }}
+        initialValues={{ taskName: "", datePicker: null, priority: "" }}
         validationSchema={Yup.object({
           taskName: Yup.string()
             .required("required")
@@ -38,7 +38,7 @@ export default function Create() {
         })}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, values, setFieldValue }) => (
           <Form className="space-y-7" id="createTask">
             <Field
               as={Input}
@@ -49,8 +49,10 @@ export default function Create() {
               error={errors.taskName && touched.taskName ? errors.taskName : ""}
             />
             <Field
-              as={DatePicker}
+              component={DatePicker}
               name="datePicker"
+              value={values.DatePicker}
+              onChange={(data) => setFieldValue("datePicker", data)}
               error={
                 errors.datePicker && touched.datePicker ? errors.datePicker : ""
               }
